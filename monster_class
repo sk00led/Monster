@@ -1,0 +1,35 @@
+public class Monster {
+#    - name : String
+    private String name = "";
+#    - health : int
+    private int health = 0;
+# - weapon : Weapon
+    private Weapon weapon;
+#    + Monster(name : String, health : int, weapon : Weapon)
+    public Monster(String name, int health, Weapon weapon) {
+        this.name = name;
+        this.health = health;
+        this.weapon = weapon;            
+    }
+# + getName() : String
+    public String getName() {
+        return this.name;
+    }
+# + getHealth() : int
+    public int getHealth() {
+         return this.health;
+    }
+# + getWeaponName() : String
+    public String getWeaponName() {
+        return this.weapon.getName();
+    }
+# + attack(other : Monster) : int
+    public int attack(Monster other) {
+# Pick a random integer between 0 and this Monster's Weapon's maxDamage
+       int damage = (int)(Math.random() * this.weapon.getMaxDamage());
+# Subtract this amount from the other Monster's health
+       other.health -= damage;
+# Return the number of points of damage that this attack inflicted
+       return damage;
+    }
+}
